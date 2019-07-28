@@ -25,10 +25,12 @@ public class LaserScript : MonoBehaviour
         dir = Hook.transform.position - Player.transform.position;
         normDir = dir.normalized;
 
+        print("Lazer: " + normDir);
+
         LaserPosition();
         LaserAngle();
 
-        if(Hook.GetComponent<HookScript>().Hooked == true)
+        if(Hook.GetComponent<HookScript>().Fired == true)
         {
             rend.enabled = false;
         }
@@ -51,13 +53,13 @@ public class LaserScript : MonoBehaviour
         {
             float angle = Vector3.Angle(normDir, Ground);
             transform.eulerAngles = new Vector3(0f, 0f, -angle + 90f);
-            print(angle);
+ 
         }
         else
         {
             float angle = Vector3.Angle(normDir, Ground);
             transform.eulerAngles = new Vector3(0f, 0f, angle + 90f);
-            print(angle);
+
         }
         
 

@@ -5,11 +5,12 @@ using UnityEngine;
 public class HookScript : MonoBehaviour
 {
     public bool Hooked = false;
-    bool Fired = false;
+    public bool Fired = false;
     bool released = false;
     bool jointKilled = false;
     int DragAble = 0;
-    
+    Vector3 AimDir;
+    Vector3 AimNormDir;
     public float HookSpeed = 100f;
     public float PullForce = 10f;
     public float DragForce;
@@ -28,7 +29,7 @@ public class HookScript : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
 
         //PushOutOfBox();
@@ -37,8 +38,13 @@ public class HookScript : MonoBehaviour
         Release();
         ReleasePart2();
 
-        Vector3 AimDir = transform.position - Player.transform.position;
-        Vector3 AimNormDir = AimDir.normalized;
+        if (!Fired)
+        {
+            AimDir = transform.position - Player.transform.position;
+            AimNormDir = AimDir.normalized;
+            print("hook aim: " + AimNormDir.ToString());
+
+        }
 
 
         //sender hooken afsted
@@ -46,6 +52,7 @@ public class HookScript : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody>().isKinematic = false;
             gameObject.GetComponent<Rigidbody>().AddForce(AimNormDir * HookSpeed);
+            print("Shot!");
         }
 
         //trækker hooken tilbage
@@ -56,7 +63,7 @@ public class HookScript : MonoBehaviour
             Vector3 dir = Player.transform.position - transform.position;
             Vector3 NormDir = dir.normalized;
             GetComponent<Rigidbody>().AddForce(NormDir * step);
-
+            print("test");
 
  
         }
@@ -69,6 +76,7 @@ public class HookScript : MonoBehaviour
             Vector3 dir = transform.position - Player.transform.position;
             Vector3 NormDir = dir.normalized;
             Player.GetComponent<Rigidbody>().AddForce(NormDir * step);
+            print("test2");
           
 
         }
