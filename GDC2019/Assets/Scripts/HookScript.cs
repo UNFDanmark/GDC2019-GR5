@@ -6,12 +6,15 @@ public class HookScript : MonoBehaviour
 {
     bool Hooked = false;
     bool Fired = false;
+    bool released = false;
+    bool jointKilled = false;
     int DragAble = 0;
-
+    
     public float HookSpeed = 100f;
     public float PullForce = 10f;
     public float DragForce;
     public float AimSpeed;
+    public float HookReturnForce;
     public GameObject Player;
     public GameObject Target;
     //Vector3 PlayerPos = new Vector3(Player.transform.position.x, Player.transform.position.y, 0);
@@ -27,13 +30,16 @@ public class HookScript : MonoBehaviour
 
     void Update()
     {
-        PushOutOfBox();
+        print(released);
+       // PushOutOfBox();
         Aim();
         HookShot();
         Release();
+        ReleasePart2();
 
         Vector3 AimDir = transform.position - Player.transform.position;
         Vector3 AimNormDir = AimDir.normalized;
+
 
         //sender hooken afsted
         if (Fired && !Hooked)
@@ -56,7 +62,7 @@ public class HookScript : MonoBehaviour
         }
         
         //Trækker player til hook
-        if (Fired && Hooked && DragAble == 2)
+        if (Fired && Hooked && DragAble == 2 && released == false)
         {
             float step = PullForce * Time.deltaTime;
 
@@ -66,6 +72,8 @@ public class HookScript : MonoBehaviour
           
             print(-NormDir);
         }
+
+
     }
 
     
@@ -74,6 +82,7 @@ public class HookScript : MonoBehaviour
         if(!Hooked && Fired)
         {
             Target = col.gameObject;
+
 
             //sætter hooken på kassen, og annulere fart/moment
             if (Target.CompareTag("Drag") && Fired)
@@ -104,9 +113,12 @@ public class HookScript : MonoBehaviour
         //slipper kassen og resetter hooken
         if(Hooked && Fired)
         {
+            released = false;
+            jointKilled = false;
             Hooked = false;
             Fired = false;
             DragAble = 0;
+            transform.localPosition = new Vector3(0f, 0f, 0.5f);
             Destroy(Target.GetComponent<CharacterJoint>());
             Destroy(Target.GetComponent<FixedJoint>());
             print(Target.name);
@@ -147,6 +159,7 @@ public class HookScript : MonoBehaviour
 
     }
 
+    /*
     float ChekPos()
     {
         Vector3 PlayerHookDis = transform.position - Player.transform.position;
@@ -156,24 +169,46 @@ public class HookScript : MonoBehaviour
 
     void PushOutOfBox()
     {
-        if (ChekPos() < 0.5f)
+        if (ChekPos() != 0.5f)
         {
-            /*Vector3 dir = transform.position - Player.transform.position;
+            Vector3 dir = transform.position - Player.transform.position;
             Vector3 NormDir = dir.normalized;
-            transform.position = NormDir * 2f;*/
+            transform.position = NormDir * 2f;
             transform.localPosition = new Vector3(0f, 0f, 0.5f);
 
         }
     }
+*/
 
-  
+    //Retunere hook
+    void ReleasePart2()
+    {
+        if (DragAble == 2 && jointKilled)
+        {
+            float step = HookReturnForce * Time.deltaTime;
+            released = true;
+            Vector3 dir = Player.transform.position - transform.position;
+            Vector3 NormDir = dir.normalized;
+            GetComponent<Rigidbody>().AddForce(NormDir * step);
 
+        }
+    }
+
+    //Sletter Joints
     void Release()
     {
         if(Hooked && Fired && Input.GetKeyDown(KeyCode.Space))
         {
+            print(Target.name);
             Destroy(Target.GetComponent<CharacterJoint>());
             Destroy(Target.GetComponent<FixedJoint>());
+
+            jointKilled = true;
+
+           
         }
+
+       
+        
     }
 }
