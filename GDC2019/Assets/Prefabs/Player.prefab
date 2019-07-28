@@ -281,6 +281,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 507686023496566492, guid: c41fd7041ddbd1a4c95c35e4fe396265,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 507686023496566492, guid: c41fd7041ddbd1a4c95c35e4fe396265,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 507686023496566492, guid: c41fd7041ddbd1a4c95c35e4fe396265,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2904478495072987749, guid: c41fd7041ddbd1a4c95c35e4fe396265,
+        type: 3}
+      propertyPath: PullForce
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2904478495072987749, guid: c41fd7041ddbd1a4c95c35e4fe396265,
+        type: 3}
+      propertyPath: HookReturnForce
+      value: 3000
+      objectReference: {fileID: 0}
     - target: {fileID: 2904478495072987749, guid: c41fd7041ddbd1a4c95c35e4fe396265,
         type: 3}
       propertyPath: Player
