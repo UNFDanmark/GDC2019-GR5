@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HookScript : MonoBehaviour
 {
-    bool Hooked = false;
+    public bool Hooked = false;
     bool Fired = false;
     bool released = false;
     bool jointKilled = false;
@@ -30,8 +30,8 @@ public class HookScript : MonoBehaviour
 
     void Update()
     {
-        print(released);
-       // PushOutOfBox();
+
+        //PushOutOfBox();
         Aim();
         HookShot();
         Release();
@@ -45,7 +45,7 @@ public class HookScript : MonoBehaviour
         if (Fired && !Hooked)
         {
             gameObject.GetComponent<Rigidbody>().isKinematic = false;
-            gameObject.GetComponent<Rigidbody>().AddForce(AimDir * HookSpeed);
+            gameObject.GetComponent<Rigidbody>().AddForce(AimNormDir * HookSpeed);
         }
 
         //trækker hooken tilbage
@@ -57,7 +57,7 @@ public class HookScript : MonoBehaviour
             Vector3 NormDir = dir.normalized;
             GetComponent<Rigidbody>().AddForce(NormDir * step);
 
-            print(NormDir);
+
  
         }
         
@@ -70,7 +70,7 @@ public class HookScript : MonoBehaviour
             Vector3 NormDir = dir.normalized;
             Player.GetComponent<Rigidbody>().AddForce(NormDir * step);
           
-            print(-NormDir);
+
         }
 
 
@@ -121,7 +121,6 @@ public class HookScript : MonoBehaviour
             transform.localPosition = new Vector3(0f, 0f, 0.5f);
             Destroy(Target.GetComponent<CharacterJoint>());
             Destroy(Target.GetComponent<FixedJoint>());
-            print(Target.name);
             gameObject.GetComponent<Rigidbody>().isKinematic = true;
             
         }
@@ -169,16 +168,16 @@ public class HookScript : MonoBehaviour
 
     void PushOutOfBox()
     {
-        if (ChekPos() != 0.5f)
+        if (ChekPos() < 0.4f)
         {
             Vector3 dir = transform.position - Player.transform.position;
             Vector3 NormDir = dir.normalized;
-            transform.position = NormDir * 2f;
-            transform.localPosition = new Vector3(0f, 0f, 0.5f);
+            transform.localPosition = NormDir * 0.5f;
+
 
         }
-    }
-*/
+    } */
+
 
     //Retunere hook
     void ReleasePart2()
@@ -199,7 +198,7 @@ public class HookScript : MonoBehaviour
     {
         if(Hooked && Fired && Input.GetKeyDown(KeyCode.Space))
         {
-            print(Target.name);
+
             Destroy(Target.GetComponent<CharacterJoint>());
             Destroy(Target.GetComponent<FixedJoint>());
 
