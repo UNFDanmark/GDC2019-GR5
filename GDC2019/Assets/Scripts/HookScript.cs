@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HookScript : MonoBehaviour
 {
+
     public bool Hooked = false;
     public bool Fired = false;
     bool released = false;
@@ -34,7 +35,12 @@ public class HookScript : MonoBehaviour
 
         //PushOutOfBox();
         Aim();
-        HookShot();
+        if((transform.localEulerAngles.z<150 && transform.localEulerAngles.z > 25) == false)
+        {
+            HookShot();
+            print("test" + transform.localEulerAngles);
+        }
+
         Release();
         ReleasePart2();
         restart();
@@ -128,7 +134,8 @@ public class HookScript : MonoBehaviour
             Hooked = false;
             Fired = false;
             DragAble = 0;
-            transform.localPosition = new Vector3(0f, 0f, 0.5f);
+            transform.localPosition = new Vector3(0f, 0.5f, 0f);
+            transform.localEulerAngles = new Vector3(0f, 90f, -90f);
             Destroy(Target.GetComponent<CharacterJoint>());
             Destroy(Target.GetComponent<FixedJoint>());
             gameObject.GetComponent<Rigidbody>().isKinematic = true;
