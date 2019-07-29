@@ -32,10 +32,10 @@ public class HookScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        print("test" + transform.localEulerAngles);
+
         //PushOutOfBox();
         Aim();
-        if((transform.localEulerAngles.z<140 && transform.localEulerAngles.z > 35) == false)
+        if((transform.localEulerAngles.z<100 && transform.localEulerAngles.z > 50) == false)
         {
             HookShot();
 
@@ -84,6 +84,7 @@ public class HookScript : MonoBehaviour
             Vector3 dir = transform.position - Player.transform.position;
             Vector3 NormDir = dir.normalized;
             Player.GetComponent<Rigidbody>().AddForce(NormDir * step);
+
 
 
 
