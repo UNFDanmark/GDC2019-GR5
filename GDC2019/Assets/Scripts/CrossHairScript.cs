@@ -30,7 +30,7 @@ public class CrossHairScript : MonoBehaviour
             if (Physics.Raycast(Player.transform.position, normDir, out hit, Mathf.Infinity, layerMask))
             {
                 transform.position = hit.point;
-                print(hit.transform.name);
+
             }
         }
     }
