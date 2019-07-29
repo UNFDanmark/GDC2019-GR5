@@ -6,6 +6,8 @@ public class CrossHairScript : MonoBehaviour
 {
     public GameObject Player;
     public GameObject Hook;
+    public Material TargetOff;
+    public Material TargetOn;
     Vector3 dir;
     Vector3 normDir;
 
@@ -23,6 +25,7 @@ public class CrossHairScript : MonoBehaviour
 
         if (Hook.GetComponent<HookScript>().Fired == false)
         {
+            gameObject.GetComponent<Renderer>().material = TargetOff;
             dir = Hook.transform.position - Player.transform.position;
             normDir = dir.normalized;
             RaycastHit hit;
@@ -32,6 +35,10 @@ public class CrossHairScript : MonoBehaviour
                 transform.position = hit.point;
 
             }
+        }
+        else
+        {
+            gameObject.GetComponent<Renderer>().material = TargetOn;
         }
     }
 
