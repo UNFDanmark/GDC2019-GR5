@@ -22,8 +22,12 @@ public class LaserScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dir = Hook.transform.position - Player.transform.position;
-        normDir = dir.normalized;
+        if (Hook.GetComponent<HookScript>().Fired == false)
+        {
+            dir = Hook.transform.position - Player.transform.position;
+            normDir = dir.normalized;
+        }
+
 
         print("Lazer: " + normDir);
 
