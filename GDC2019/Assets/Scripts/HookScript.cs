@@ -35,7 +35,7 @@ public class HookScript : MonoBehaviour
 
         //PushOutOfBox();
         Aim();
-        if((transform.localEulerAngles.z<150 && transform.localEulerAngles.z > 25) == false)
+        if((transform.localEulerAngles.z<150 && transform.localEulerAngles.z > 30) == false)
         {
             HookShot();
             print("test" + transform.localEulerAngles);
@@ -168,8 +168,15 @@ public class HookScript : MonoBehaviour
              {
                  transform.RotateAround(Player.transform.position, Vector3.back, AimSpeed * -Input.GetAxis("Horizontal") * Time.deltaTime);
              }*/
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                transform.RotateAround(Player.transform.position, Vector3.back, AimSpeed * -1 * Time.deltaTime);
+            }
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                transform.RotateAround(Player.transform.position, Vector3.back, AimSpeed * 1 * Time.deltaTime);
+            }
 
-            transform.RotateAround(Player.transform.position, Vector3.back, AimSpeed * Input.GetAxis("Horizontal") * Time.deltaTime);
         }
 
 

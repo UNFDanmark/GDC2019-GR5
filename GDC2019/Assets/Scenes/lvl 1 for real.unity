@@ -6206,6 +6206,11 @@ PrefabInstance:
       propertyPath: PullForce
       value: 6000
       objectReference: {fileID: 0}
+    - target: {fileID: 5609531356354052783, guid: 8d153af6908dd5b4c877e7fd55f2cfa9,
+        type: 3}
+      propertyPath: AimSpeed
+      value: 175
+      objectReference: {fileID: 0}
     - target: {fileID: 7320540450664960970, guid: 8d153af6908dd5b4c877e7fd55f2cfa9,
         type: 3}
       propertyPath: m_Drag
@@ -6225,6 +6230,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.z
       value: 0.05465732
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320540451196160991, guid: 8d153af6908dd5b4c877e7fd55f2cfa9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.282
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320540451196160991, guid: 8d153af6908dd5b4c877e7fd55f2cfa9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1556696
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320540451196160991, guid: 8d153af6908dd5b4c877e7fd55f2cfa9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320540451196160991, guid: 8d153af6908dd5b4c877e7fd55f2cfa9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.31026816
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320540451196160991, guid: 8d153af6908dd5b4c877e7fd55f2cfa9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d153af6908dd5b4c877e7fd55f2cfa9, type: 3}
@@ -14177,6 +14207,16 @@ PrefabInstance:
       propertyPath: Hook
       value: 
       objectReference: {fileID: 877295594}
+    - target: {fileID: 3067342691567062554, guid: d97515042e60e98479af0a54459d6e5b,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
+      value: 0.020274233
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067342691567062554, guid: d97515042e60e98479af0a54459d6e5b,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.14681867
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d97515042e60e98479af0a54459d6e5b, type: 3}
 --- !u!4 &2130053241 stripped
