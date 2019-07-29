@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class HookScript : MonoBehaviour
 {
+
     public bool Hooked = false;
-    bool Fired = false;
+    public bool Fired = false;
     bool released = false;
     bool jointKilled = false;
     int DragAble = 0;
-    
+    Vector3 AimDir;
+    Vector3 AimNormDir;
     public float HookSpeed = 100f;
     public float PullForce = 10f;
     public float DragForce;
@@ -19,26 +21,38 @@ public class HookScript : MonoBehaviour
     public GameObject Target;
     //Vector3 PlayerPos = new Vector3(Player.transform.position.x, Player.transform.position.y, 0);
     Vector3 PlayerPos = new Vector3(0, 0, 0);
-    
+
 
     void Start()
     {
         Physics.IgnoreLayerCollision(8, 9);
-        Physics.IgnoreLayerCollision(8, 10);
+        //Physics.IgnoreLayerCollision(8, 10);
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
 
         //PushOutOfBox();
         Aim();
-        HookShot();
+        if((transform.localEulerAngles.z<150 && transform.localEulerAngles.z > 25) == false)
+        {
+            HookShot();
+            print("test" + transform.localEulerAngles);
+        }
+
         Release();
         ReleasePart2();
+        restart();
 
-        Vector3 AimDir = transform.position - Player.transform.position;
-        Vector3 AimNormDir = AimDir.normalized;
+
+        if (!Fired)
+        {
+            AimDir = transform.position - Player.transform.position;
+            AimNormDir = AimDir.normalized;
+
+
+        }
 
 
         //sender hooken afsted
@@ -46,6 +60,7 @@ public class HookScript : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody>().isKinematic = false;
             gameObject.GetComponent<Rigidbody>().AddForce(AimNormDir * HookSpeed);
+
         }
 
         //trækker hooken tilbage
@@ -58,9 +73,9 @@ public class HookScript : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(NormDir * step);
 
 
- 
+
         }
-        
+
         //Trækker player til hook
         if (Fired && Hooked && DragAble == 2 && released == false)
         {
@@ -69,17 +84,18 @@ public class HookScript : MonoBehaviour
             Vector3 dir = transform.position - Player.transform.position;
             Vector3 NormDir = dir.normalized;
             Player.GetComponent<Rigidbody>().AddForce(NormDir * step);
-          
+
+
 
         }
 
 
     }
 
-    
+
     void OnCollisionEnter(Collision col)
-    {   
-        if(!Hooked && Fired)
+    {
+        if (!Hooked && Fired)
         {
             Target = col.gameObject;
 
@@ -105,31 +121,32 @@ public class HookScript : MonoBehaviour
                 GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
         }
-       
+
     }
 
     private void OnTriggerEnter(Collider trig)
     {
         //slipper kassen og resetter hooken
-        if(Hooked && Fired)
+        if (Hooked && Fired)
         {
             released = false;
             jointKilled = false;
             Hooked = false;
             Fired = false;
             DragAble = 0;
-            transform.localPosition = new Vector3(0f, 0f, 0.5f);
+            transform.localPosition = new Vector3(0f, 0.5f, 0f);
+            transform.localEulerAngles = new Vector3(0f, 90f, -90f);
             Destroy(Target.GetComponent<CharacterJoint>());
             Destroy(Target.GetComponent<FixedJoint>());
             gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            
+
         }
 
     }
 
     //Skyde Hook
     void HookShot()
-    {   
+    {
         //input for at skyde hooken afsted
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -140,7 +157,7 @@ public class HookScript : MonoBehaviour
     //drej hook om player
     void Aim()
     {
-        if(!Hooked && !Fired)
+        if (!Hooked && !Fired)
         {
             /* if (transform.position.y >= Player.transform.position.y - 0.01)
              {
@@ -154,7 +171,7 @@ public class HookScript : MonoBehaviour
 
             transform.RotateAround(Player.transform.position, Vector3.back, AimSpeed * Input.GetAxis("Horizontal") * Time.deltaTime);
         }
-        
+
 
     }
 
@@ -177,6 +194,15 @@ public class HookScript : MonoBehaviour
 
         }
     } */
+
+
+    void restart()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
+    }
 
 
     //Retunere hook
