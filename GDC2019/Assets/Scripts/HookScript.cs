@@ -44,7 +44,7 @@ public class HookScript : MonoBehaviour
         Release();
         ReleasePart2();
         restart();
-
+        BugRelease();
 
         if (!Fired)
         {
@@ -240,8 +240,16 @@ public class HookScript : MonoBehaviour
 
            
         }
-
-       
         
+    }
+
+    //reset hook hvis den er på den anden side af en væg i forhold til player og du ikke kan få den tilbage
+    void BugRelease()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && GetComponent<Rigidbody>().velocity.magnitude < 0.1f && Player.GetComponent<Rigidbody>().velocity.magnitude < 0.1f && Fired == true && Hooked == true) 
+        {
+            transform.localPosition = new Vector3(0f, 0.5f, 0f);
+            transform.localEulerAngles = new Vector3(0f, 90f, -90f);
+        }
     }
 }
