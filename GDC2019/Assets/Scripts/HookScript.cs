@@ -32,13 +32,13 @@ public class HookScript : MonoBehaviour
 
     void FixedUpdate()
     {
-
+        print("test" + transform.localEulerAngles);
         //PushOutOfBox();
         Aim();
-        if((transform.localEulerAngles.z<150 && transform.localEulerAngles.z > 30) == false)
+        if((transform.localEulerAngles.z<140 && transform.localEulerAngles.z > 35) == false)
         {
             HookShot();
-            print("test" + transform.localEulerAngles);
+
         }
 
         Release();
