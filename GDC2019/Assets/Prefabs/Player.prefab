@@ -304,7 +304,7 @@ Rigidbody:
   m_GameObject: {fileID: 7320540452706872501}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0.2
+  m_Drag: 0.6
   m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -434,6 +434,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "Hook_f\xE6rdig"
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 176680f7447bafb48803e25040164274,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 176680f7447bafb48803e25040164274,
         type: 3}
@@ -634,14 +639,9 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 7320540452706872501}
-    - target: {fileID: 3523450112765425811, guid: c41fd7041ddbd1a4c95c35e4fe396265,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 850623232, guid: c41fd7041ddbd1a4c95c35e4fe396265, type: 3}
       propertyPath: m_Drag
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c41fd7041ddbd1a4c95c35e4fe396265, type: 3}
