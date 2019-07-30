@@ -18,14 +18,14 @@ public class Button : MonoBehaviour
         
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         WinBlock.GetComponent<Renderer>().enabled = false;
         WinBlock.GetComponent<Collider>().enabled = false;
         gameObject.GetComponent<Renderer>().material = on;
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
 
         WinBlock.GetComponent<Renderer>().enabled = true;

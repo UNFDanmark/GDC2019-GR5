@@ -10,9 +10,13 @@ public class PlayerScript : MonoBehaviour
     {
         if (other.CompareTag("Finish"))
         {
-            if (SceneManager.GetActiveScene().buildIndex == 2)
+            if (SceneManager.GetActiveScene().buildIndex == 3)
             {
                 SceneManager.LoadScene("Startskærm");
+            }
+            if (SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
             if (SceneManager.GetActiveScene().buildIndex == 1)
             {
