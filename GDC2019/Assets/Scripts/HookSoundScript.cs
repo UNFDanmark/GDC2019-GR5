@@ -7,6 +7,7 @@ public class HookSoundScript : MonoBehaviour
     bool IsPlayingHitSound;
     bool IsPlayingLeadSound;
     public AudioClip SnorLyd;
+    public AudioSource extend;
 
     // Start is called before the first frame update
     void Start()
@@ -16,11 +17,14 @@ public class HookSoundScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+
     {
+        
+
         bool IsItHit = GetComponent<HookScript>().Hooked;
 
         bool HookMoving = GetComponent<HookScript>().Fired;
-        
+        //print(isithit);
         if (!IsItHit)
         {
             IsPlayingHitSound = false;
@@ -33,7 +37,7 @@ public class HookSoundScript : MonoBehaviour
 
         if (IsItHit)
         {
-            gameObject.GetComponent<AudioSource>().Stop();
+            extend.Stop();
             print("ye");
         }
 
@@ -49,7 +53,10 @@ public class HookSoundScript : MonoBehaviour
             IsPlayingLeadSound = true;
         }
     }
-
+   /* private void OnCollisionEnter(Collision collision)
+    {
+        gameObject.GetComponent<AudioSource>().Play();
+    }*/
     void PlayHookAttachSound()
     {
         gameObject.GetComponent<AudioSource>().Play();
@@ -57,7 +64,7 @@ public class HookSoundScript : MonoBehaviour
 
     void PlayHookLeadSound()
     {
-        gameObject.GetComponent<AudioSource>().PlayOneShot(SnorLyd);
+        extend.Play();
         print("boi");
     }
 }
