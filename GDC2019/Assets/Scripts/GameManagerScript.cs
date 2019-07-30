@@ -43,6 +43,7 @@ public class GameManagerScript : MonoBehaviour
             }
 
             else
+
             {
                 Time.timeScale = 1;
                 GameIsPaused = false;
@@ -63,5 +64,7 @@ public class GameManagerScript : MonoBehaviour
         Application.Quit();
         print("Game close");
     }
+
+
 }
 
