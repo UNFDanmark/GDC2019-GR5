@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class HookScript : MonoBehaviour
 {
-
+    public bool tryingToReturn = false;
     public bool Hooked = false;
     public bool Fired = false;
-    bool released = false;
-    bool jointKilled = false;
+    public bool released = false;
+    public bool jointKilled = false;
     int DragAble = 0;
     Vector3 AimDir;
     Vector3 AimNormDir;
@@ -40,11 +40,11 @@ public class HookScript : MonoBehaviour
             HookShot();
 
         }
-
+        BugRelease();
         Release();
         ReleasePart2();
         restart();
-        BugRelease();
+
 
         if (!Fired)
         {
@@ -67,7 +67,7 @@ public class HookScript : MonoBehaviour
         if (Fired && Hooked && DragAble == 1)
         {
             float step = DragForce * Time.deltaTime;
-
+            tryingToReturn = true;
             Vector3 dir = Player.transform.position - transform.position;
             Vector3 NormDir = dir.normalized;
             GetComponent<Rigidbody>().AddForce(NormDir * step);
@@ -106,7 +106,7 @@ public class HookScript : MonoBehaviour
             {
                 Hooked = true;
                 DragAble = 1;
-
+                jointKilled = true;
                 Target.AddComponent<CharacterJoint>();
                 Target.GetComponent<CharacterJoint>().connectedBody = gameObject.GetComponent<Rigidbody>();
                 GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -140,6 +140,7 @@ public class HookScript : MonoBehaviour
             Destroy(Target.GetComponent<CharacterJoint>());
             Destroy(Target.GetComponent<FixedJoint>());
             gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            tryingToReturn = false;
 
         }
 
@@ -246,10 +247,11 @@ public class HookScript : MonoBehaviour
     //reset hook hvis den er på den anden side af en væg i forhold til player og du ikke kan få den tilbage
     void BugRelease()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && GetComponent<Rigidbody>().velocity.magnitude < 0.1f && Player.GetComponent<Rigidbody>().velocity.magnitude < 0.1f && Fired == true && Hooked == true) 
+        if (Input.GetKeyDown(KeyCode.Space) && GetComponent<Rigidbody>().velocity.magnitude < 0.1f && Player.GetComponent<Rigidbody>().velocity.magnitude < 0.1f && Fired == true && Hooked == true && jointKilled == true && tryingToReturn == true && released == true) 
         {
             transform.localPosition = new Vector3(0f, 0.5f, 0f);
             transform.localEulerAngles = new Vector3(0f, 90f, -90f);
+            print("WHAT!");
         }
     }
 }
