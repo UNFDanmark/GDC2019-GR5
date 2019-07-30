@@ -9,6 +9,7 @@ public class GameManagerScript : MonoBehaviour
     bool GameIsPaused = false;
     public GameObject ExitToStart;
     public GameObject ExitGameBTN;
+    public GameObject Blur;
 
 
     // Start is called before the first frame update
@@ -16,6 +17,7 @@ public class GameManagerScript : MonoBehaviour
     {
         ExitToStart.SetActive(false);
         ExitGameBTN.SetActive(false);
+        Blur.SetActive(false);
     }
 
     // Update is called once per frame
@@ -36,6 +38,7 @@ public class GameManagerScript : MonoBehaviour
                 GameIsPaused = true;
                 ExitToStart.SetActive(true);
                 ExitGameBTN.SetActive(true);
+                Blur.SetActive(true);
                 print("Paused");
             }
 
@@ -45,6 +48,7 @@ public class GameManagerScript : MonoBehaviour
                 GameIsPaused = false;
                 ExitToStart.SetActive(false);
                 ExitGameBTN.SetActive(false);
+                Blur.SetActive(false);
             }
         }
     }
