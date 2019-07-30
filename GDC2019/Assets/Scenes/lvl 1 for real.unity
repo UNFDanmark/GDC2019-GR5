@@ -26983,7 +26983,12 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0.06961925
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 877295601, guid: 8d153af6908dd5b4c877e7fd55f2cfa9, type: 3}
+      propertyPath: SnorLyd
+      value: 
+      objectReference: {fileID: 8300000, guid: 89758802934a3674d9aba8265f6809f6, type: 3}
+    m_RemovedComponents:
+    - {fileID: 877295601, guid: 8d153af6908dd5b4c877e7fd55f2cfa9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8d153af6908dd5b4c877e7fd55f2cfa9, type: 3}
 --- !u!4 &948113818 stripped
 Transform:

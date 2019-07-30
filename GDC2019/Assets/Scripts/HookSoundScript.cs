@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class HookSoundScript : MonoBehaviour
 {
-
     bool IsPlayingHitSound;
     bool IsPlayingLeadSound;
     public AudioClip SnorLyd;

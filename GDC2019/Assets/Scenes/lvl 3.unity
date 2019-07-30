@@ -11822,32 +11822,32 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 17acf40dce1fa1240845ffc2f887d0c3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.29
+      value: 12.24
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 17acf40dce1fa1240845ffc2f887d0c3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.44
+      value: 18.22
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 17acf40dce1fa1240845ffc2f887d0c3,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.5068799
+      value: 0.2830083
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 17acf40dce1fa1240845ffc2f887d0c3,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.27284062
+      value: -0.21881905
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 17acf40dce1fa1240845ffc2f887d0c3,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.17304972
+      value: 0.2377108
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 17acf40dce1fa1240845ffc2f887d0c3,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.79917747
+      value: 0.90306044
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 17acf40dce1fa1240845ffc2f887d0c3,
         type: 3}
@@ -11857,17 +11857,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 17acf40dce1fa1240845ffc2f887d0c3,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 64.77
+      value: 37.965
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 17acf40dce1fa1240845ffc2f887d0c3,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -37.7
+      value: -19.307001
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 17acf40dce1fa1240845ffc2f887d0c3,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 22.797
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 17acf40dce1fa1240845ffc2f887d0c3,
         type: 3}
@@ -27632,7 +27632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94482fd0c0438db4d9307b4c15f50ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SnorLyd: {fileID: 0}
+  SnorLyd: {fileID: 8300000, guid: 89758802934a3674d9aba8265f6809f6, type: 3}
 --- !u!1001 &877997130
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29759,6 +29759,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0.06961925
       objectReference: {fileID: 0}
+    - target: {fileID: 877295601, guid: 8d153af6908dd5b4c877e7fd55f2cfa9, type: 3}
+      propertyPath: SnorLyd
+      value: 
+      objectReference: {fileID: 8300000, guid: db12867940a478d43a4ad578e44c6ff8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d153af6908dd5b4c877e7fd55f2cfa9, type: 3}
 --- !u!4 &948113818 stripped
@@ -49639,7 +49643,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 884f3e3dec34737449820aa004bcd634, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.02
   m_Pitch: 1
   Loop: 1
   Mute: 0
