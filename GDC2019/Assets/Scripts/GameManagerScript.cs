@@ -10,11 +10,13 @@ public class GameManagerScript : MonoBehaviour
     public GameObject ExitToStart;
     public GameObject ExitGameBTN;
     public GameObject Blur;
+    public GameObject Tavle;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        Tavle.SetActive(false);
         ExitToStart.SetActive(false);
         ExitGameBTN.SetActive(false);
         Blur.SetActive(false);
@@ -39,6 +41,7 @@ public class GameManagerScript : MonoBehaviour
                 ExitToStart.SetActive(true);
                 ExitGameBTN.SetActive(true);
                 Blur.SetActive(true);
+                Tavle.SetActive(true);
                 print("Paused");
             }
 
@@ -50,6 +53,7 @@ public class GameManagerScript : MonoBehaviour
                 ExitToStart.SetActive(false);
                 ExitGameBTN.SetActive(false);
                 Blur.SetActive(false);
+                Tavle.SetActive(false);
             }
         }
     }
