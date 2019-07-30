@@ -33733,7 +33733,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 884f3e3dec34737449820aa004bcd634, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.02
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -34439,7 +34439,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812138468}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.87, y: 0.7800002, z: 0.06}
@@ -78730,6 +78730,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 877295601, guid: 8d153af6908dd5b4c877e7fd55f2cfa9, type: 3}
+      propertyPath: SnorLyd
+      value: 
+      objectReference: {fileID: 8300000, guid: 89758802934a3674d9aba8265f6809f6, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d153af6908dd5b4c877e7fd55f2cfa9, type: 3}
 --- !u!4 &1833475987 stripped
