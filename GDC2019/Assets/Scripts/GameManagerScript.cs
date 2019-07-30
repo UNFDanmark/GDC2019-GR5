@@ -1,45 +1,63 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
 {
-
-    public float KonamiTime = 20f;
-    float TimeLeft = 0f;
-
+    bool GameIsPaused = false;
+    public GameObject ExitToStart;
+    public GameObject ExitGameBTN;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        ExitToStart.SetActive(false);
+        ExitGameBTN.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        pause();
+
 
     }
 
-    void Konami()
+    void pause()
     {
-
-        TimeLeft = TimeLeft - 0.02f * Time.deltaTime;
-
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            TimeLeft = 20;
+            if (GameIsPaused == false)
+            {
+                Time.timeScale = 0;
+                GameIsPaused = true;
+                ExitToStart.SetActive(true);
+                ExitGameBTN.SetActive(true);
+                print("Paused");
+            }
 
+            else
+            {
+                Time.timeScale = 1;
+                GameIsPaused = false;
+                ExitToStart.SetActive(false);
+                ExitGameBTN.SetActive(false);
+            }
         }
-        
-        
-        
-
     }
 
+    public void ExitToStartScreen()
+    {
+        SceneManager.LoadScene(0);
+    }
 
-
+    public void ExitGame()
+    {
+        Application.Quit();
+        print("Game close");
+    }
 }
 
