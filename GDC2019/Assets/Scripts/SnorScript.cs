@@ -8,6 +8,7 @@ public class SnorScript : MonoBehaviour
     public GameObject Player;
     public GameObject Hook;
 
+
     // Start is called before the first frame update
     void Start()
     {
