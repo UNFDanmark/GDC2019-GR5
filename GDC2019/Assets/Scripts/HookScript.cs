@@ -236,7 +236,7 @@ public class HookScript : MonoBehaviour
 
             Destroy(Target.GetComponent<CharacterJoint>());
             Destroy(Target.GetComponent<FixedJoint>());
-
+            tryingToReturn = true;
             jointKilled = true;
 
            
