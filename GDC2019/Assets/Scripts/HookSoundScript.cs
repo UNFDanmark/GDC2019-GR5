@@ -6,6 +6,7 @@ public class HookSoundScript : MonoBehaviour
 {
 
     bool IsPlaying;
+    public AudioClip SnorLyd;
 
     // Start is called before the first frame update
     void Start()
@@ -16,8 +17,8 @@ public class HookSoundScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool IsItHit = gameObject.GetComponent<HookScript>().Hooked; 
-        bool HookMoving = 
+        bool IsItHit = GetComponent<HookScript>().Hooked;
+        bool HookMoving = GetComponent<HookScript>().Fired;
         
         if (!IsItHit)
         {
@@ -26,14 +27,19 @@ public class HookSoundScript : MonoBehaviour
 
         if (IsItHit == true && IsPlaying == false)
         {
-            PlaySound();
+            PlayHookAttachSound();
             IsPlaying = true;
         }
 
     }
 
-    void PlaySound()
-        {
+    void PlayHookAttachSound()
+    {
         gameObject.GetComponent<AudioSource>().Play();
-        }
+    }
+
+    //void PlayHookShootSound()
+    //{
+    //    gameObject.GetComponent<AudioSource>().PlayOneShot();
+    //}
 }
