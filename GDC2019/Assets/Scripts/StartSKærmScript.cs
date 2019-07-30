@@ -17,6 +17,7 @@ public class StartSKærmScript : MonoBehaviour
         if (Input.anyKeyDown)
         {
             SceneManager.LoadScene(1);
+            Time.timeScale = 1;
         }
     }
 }
