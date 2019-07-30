@@ -16,7 +16,8 @@ public class HookSoundScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       bool IsItHit = gameObject.GetComponent<HookScript>().Hooked; 
+        bool IsItHit = gameObject.GetComponent<HookScript>().Hooked; 
+        bool HookMoving = 
         
         if (!IsItHit)
         {
