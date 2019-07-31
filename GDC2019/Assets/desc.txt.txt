@@ -1,0 +1,9 @@
+I Kling spiller du en lille robot som skal svinge sig rund i en metalverden ved at at bruge sin grabling magnet, i bedste Spiderman stil.
+
+
+Controls:
+Aim: <- ->
+Shoot: Space
+Early release: Space
+Restart level: R
+Pause: Ecs
