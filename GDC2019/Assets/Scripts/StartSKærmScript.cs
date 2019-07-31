@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class StartSKærmScript : MonoBehaviour
 {
-
+    bool isShow = false;
     public GameObject Tavle;
     public GameObject BLur;
     // Start is called before the first frame update
@@ -29,7 +29,20 @@ public class StartSKærmScript : MonoBehaviour
 
     public void Cont()
     {
-        Tavle.SetActive(true);
-        BLur.SetActive(true);
+        if(isShow == false)
+        {
+            Tavle.SetActive(true);
+            BLur.SetActive(true);
+            isShow = true;
+            return;
+        }
+
+        if (isShow == true)
+        {
+            Tavle.SetActive(false);
+            BLur.SetActive(false);
+            isShow = false;
+        }
+
     }
 }
