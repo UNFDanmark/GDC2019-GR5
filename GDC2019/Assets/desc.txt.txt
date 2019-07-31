@@ -1,6 +1,5 @@
 I Kling spiller du en lille robot som skal svinge sig rundt i en metalverden og 
-undvige forhindringer ved hjælp af sin grappling-magnet i bedste Spiderman stil. 
-På dens rejse kommer du til at møde dødsensfarlige savklinger, svære forhindringer og meget mere.
+undvige forhindringer ved hjælp af sin grappling-magnet i bedste Spiderman stil.
 
 
 Controls:
